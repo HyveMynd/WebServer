@@ -57,7 +57,7 @@ public class HttpRequest {
 
 		String[] tmp = line.split(" ");
 		if (tmp.length != 3){
-			log.error("Invalid Request line: {}", line);
+			log.warn("Invalid Request line: {}", line);
 			throw new IOException("Invalid Request line.");
 		}
 
@@ -66,6 +66,10 @@ public class HttpRequest {
 		version = tmp[2]; // HTTP HTTP_VERSION
 		log.info("Request line is {} {} {}", method, URI, version);
 
+		if (!version.startsWith("http/") && !version.startsWith("HTTP/")){
+			log.warn("Invalid Request line: {}", line);
+			throw new IOException("Invalid Request line.");
+		}
 	}
 
 	/**
@@ -87,7 +91,7 @@ public class HttpRequest {
 		return URI;
 	}
 
-	public String getVerb() {
+	public String getMethod() {
 		return method;
 	}
 

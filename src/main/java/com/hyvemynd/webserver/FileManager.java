@@ -12,7 +12,7 @@ import java.awt.*;
 import java.io.File;
 
 /**
- * Created by andresmonroy on 6/24/14.
+ * Handles file related issues related to the webserver.
  */
 public class FileManager {
 
@@ -33,6 +33,10 @@ public class FileManager {
 		return file.exists();
 	}
 
+	/**
+	 * Returns the MIME type of the file in question.
+	 * @return
+	 */
 	public String getContentType() {
 		String ext = FilenameUtils.getExtension(filePath);
 		log.debug("Extension is {}", ext);
@@ -49,6 +53,10 @@ public class FileManager {
 		}
 	}
 
+	/**
+	 * Returns the length in bytes of the file.
+	 * @return
+	 */
 	public long getContentLength(){
 		return file.length();
 	}

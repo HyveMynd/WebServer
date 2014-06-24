@@ -22,6 +22,9 @@ public class WebServer {
 	private static final int DEFAULT_PORT = 1337;
 	private static final String WEB_ROOT = "/wwwroot";
 
+	/**
+	 * Default initialization for the webserver.
+	 */
 	private static void initDefault() {
 		try {
 			LoggingManager.initConsoleLogging(Level.INFO);
@@ -34,6 +37,10 @@ public class WebServer {
 		}
 	}
 
+	/**
+	 * Initialization based on the arguments passed into the program.
+	 * @param args
+	 */
 	private static void init(String[] args){
 		try {
 			parseLogLevel(args[1]);
@@ -84,7 +91,7 @@ public class WebServer {
 
 		while (true){
 			try {
-				log.warn("Use Ctrl-C to exit stop and close the server.");
+				log.warn("Use Ctrl-C to exit, stop, and close the server.");
 				log.info("Awaiting request...");
 				synchronized (threadPool){
 					threadPool.execute(new RequestHandler(serverSocket.accept(), WEB_ROOT));

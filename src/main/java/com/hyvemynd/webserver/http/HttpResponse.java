@@ -75,6 +75,10 @@ public class HttpResponse {
 		return headers.get(key.toUpperCase());
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
 	private void addServerAndTimeHeaders(){
 		addHeader("Server", "WebServer");
 		addHeader("Date", new Date().toString());

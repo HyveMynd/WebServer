@@ -46,7 +46,7 @@ public class RequestHandler implements Runnable {
 			}
 
 			// Check for an invalid verb
-			if (!isMethodValid(req.getVerb())){
+			if (!isMethodValid(req.getMethod())){
 				log.info("Method not implemented. Sending 501");
 				send(HttpResponse.get501(), null);
 				return;
@@ -65,14 +65,14 @@ public class RequestHandler implements Runnable {
 			}
 
 			// Send the HEAD response
-			if (req.getVerb().equalsIgnoreCase(HttpMethods.HEAD)){
+			if (req.getMethod().equalsIgnoreCase(HttpMethods.HEAD)){
 				log.info("Sending response headers.");
 				send(HttpResponse.get200(fileManager), null);
 				return;
 			}
 
 			// Send the GET response
-			if (req.getVerb().equalsIgnoreCase(HttpMethods.GET)){
+			if (req.getMethod().equalsIgnoreCase(HttpMethods.GET)){
 				log.info("Sending GET response.");
 				send(HttpResponse.get200(fileManager), fileManager.getFile());
 				return;
