@@ -29,6 +29,7 @@ There were a few assumptions made according to the language of the requirements 
 First, the web server is a separate component from the javascript application, and therefore
 do not interact with each other. Second, the only libraries used were logging and commons-io for
 a few simple tasks. I assumed using libraries would trivialize the assignment, and therefore kept it to a minimum.
-Lastly, the server is designed to be run from the commandline. Using servlets would again allow many facilities,
-which would in turn trivialize the assignment. 
+Third, the server is designed to be run from the commandline. Using servlets would again allow many facilities,
+which would in turn trivialize the assignment. Lastly, all files will be served from the wwwroot folder, 
+and simply contains the files of the javascript project to be served by each request. 
 	
