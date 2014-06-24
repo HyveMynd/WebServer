@@ -5,7 +5,6 @@ import com.hyvemynd.webserver.http.MediaType;
 import com.hyvemynd.webserver.logging.LoggingManager;
 import org.apache.log4j.Level;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

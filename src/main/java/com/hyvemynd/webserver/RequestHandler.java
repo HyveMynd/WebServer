@@ -82,6 +82,7 @@ public class RequestHandler implements Runnable {
 			log.error("An Error has occurred while handling the request.", e);
 		} finally {
 			try {
+				log.info("Request Satisfied.");
 				client.close();
 			} catch (IOException e) {
 				log.error("Error closing client connection.", e);
